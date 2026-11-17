@@ -1,0 +1,15 @@
+# Corvit Systems Peshawar: Netlify configuration
+# Static site (no build step) + one serverless function for the Dify chatbot.
+# DIFY_API_KEY (and optional DIFY_BASE_URL) live in Netlify > Site configuration > Environment variables.
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
